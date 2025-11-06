@@ -1,2 +1,66 @@
 # Simulator-football-results
 Simulator of football results
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Finale SP 2022: Argentina vs Francuska</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #match-info { margin: 20px; }
+
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+
+    #result { margin-top: 30px; font-size: 24px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Finale SP 2022: Argentina vs Francuska</h1>
+  <div id="match-info">
+    <label for="teamA">Tim A:</label>
+    <select id="teamA">
+      <option value="Argentina">Argentina</option>
+      <option value="Francuska">Francuska</option>
+    </select>
+    <label for="teamB">Tim B:</label>
+    <select id="teamB">
+      <option value="Francuska">Francuska</option>
+      <option value="Argentina">Argentina</option>
+    </select>
+    <button id="playBtn">Odigraj utakmicu</button>
+  </div>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('playBtn').addEventListener('click', function() {
+      const teamA = document.getElementById('teamA').value;
+      const teamB = document.getElementById('teamB').value;
+
+      const rand = Math.random();
+      let winner;
+
+      if (teamA === "Argentina" && teamB === "Francuska") {
+          winner = rand < 0.6 ? "Argentina" : "Francuska";
+      } else if (teamA === "Francuska" && teamB === "Argentina") {
+          winner = rand < 0.4 ? "Francuska" : "Argentina";
+      } else {
+          winner = rand < 0.5 ? teamA : teamB;
+      }
+
+      let goalsWinner = Math.floor(Math.random() * 3) + 1;
+      let goalsLoser = Math.floor(Math.random() * goalsWinner);
+
+      let resultText = winner === teamA
+          ? `${teamA} ${goalsWinner} - ${goalsLoser} ${teamB}`
+          : `${teamA} ${goalsLoser} - ${goalsWinner} ${teamB}`;
+
+      document.getElementById('result').innerText = resultText;
+    });
+  </script>
+</body>
+</html>
