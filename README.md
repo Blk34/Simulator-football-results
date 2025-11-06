@@ -43,9 +43,4 @@ Simulator of football results
 
       // Generiranje rezultata
       const goalsWinner = Math.floor(Math.random() * 4) + 1; // 1-4 gola
-      const goalsLoser = Math.floor(Math.random() * goalsWinner); // 0 do golova pobjednika-1
-
-      const resultText = winner === "Argentina"
-        ? `Argentina ${goalsWinner} - ${goalsLoser} Francuska`
-        : `Argentina ${goalsLoser} - ${goalsWinner} Francuska`
-
+      const goalsLoser = Math.floor(Math.random() * goalsWinner); // 0 do go
