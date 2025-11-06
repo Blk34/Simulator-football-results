@@ -19,30 +19,14 @@ Simulator of football results
 
   <script>
     function playMatch() {
-      const argentinaChance = 0.6; // 60%
-      const francuskaChance = 0.4; // 40%
-      
-      let winner, loser;
-      if (Math.random() < argentinaChance) {
-        winner = "Argentina";
-        loser = "Francuska";
-      } else {
-        winner = "Francuska";
-        loser = "Argentina";
-      }
+      // 60% šanse za Argentinu, 40% za Francusku
+      const winner = Math.random() < 0.6 ? "Argentina" : "Francuska";
+      const loser = winner === "Argentina" ? "Francuska" : "Argentina";
 
-      const goalsWinner = Math.floor(Math.random() * 5); // 0-4 gola
-      const goalsLoser = Math.floor(Math.random() * (goalsWinner + 1)); // 0 do golova pobjednika
+      // Golovi
+      const winnerGoals = Math.floor(Math.random() * 5); // 0-4
+      const loserGoals = Math.floor(Math.random() * (winnerGoals + 1)); // 0 do golova pobjednika
 
-      let resultText = "";
-      if (winner === "Argentina") {
-        resultText = `Argentina ${goalsWinner} - ${goalsLoser} Francuska`;
-      } else {
-        resultText = `Argentina ${goalsLoser} - ${goalsWinner} Francuska`;
-      }
-
-      document.getElementById("result").innerText = resultText;
-    }
-  </script>
-</body>
-</html>
+      // Prikaz rezultata
+      const resultText = winner === "Argentina" 
+        ?
