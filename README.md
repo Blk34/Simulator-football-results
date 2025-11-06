@@ -1,6 +1,5 @@
 # Simulator-football-results
 Simulator of football results
-innerText = text;
 <!DOCTYPE html>
 <html lang="hr">
 <head>
